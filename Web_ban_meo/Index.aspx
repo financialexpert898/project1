@@ -12,8 +12,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="assets/style.css" type="text/css">
+   
     <!-- Font awesome -->
-
+    <style> 
+   .product { 
+       margin-right: 100px; 
+   } 
+</style> 
+ 
 
     <!-- Custom css - Các file css do chúng ta tự viết -->
 
@@ -23,7 +29,7 @@
       <form runat="server">
     <!-- header -->
         <!-- header -->
-    <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+   <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
         <div class="container">
 
             <div class="navbar-collapse collapse" id="navbarCollapse">
@@ -38,14 +44,11 @@
                         <a class="nav-link" href="pages/contact.html">Liên hệ</a>
                     </li>
                 </ul>
-                 
-                        
-                    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="Tìm Kiếm"/> 
-                        <asp:Label ID="lblMessage" runat="server" Text="111"></asp:Label>
-                    
-                
-            
+                <form class="form-inline mt-2 mt-md-0" method="get" action="pages/search.html">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search"
+                        name="keyword_tensanpham">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                </form>
             </div>
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
@@ -82,141 +85,38 @@
                 </a>
             </div>
         </div>
-        <div id="wp-products">
-            <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
-
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"> 
-    <Columns> 
-        <asp:TemplateField> 
-            <ItemTemplate> 
-                <div class="item"> 
-                    <asp:Image ID="product" ImageUrl='<%# Eval("ImageUrl", "~/assets/{0}") %>' runat="server" /> 
-                    <div class="stars">
-                   
-                       
-                        <% int total_star = 5;
-                            for (int i = 0; i < total_star; i++)
-                            { %>
-                          <span><img src="assets/star.png" alt=""></span>
-                      <% } %>
-                    </div>
-                    <div class="name"> 
-                        <%# Eval("Name") %> 
-                    </div> 
-                    <div class="desc"> 
-                        <%# Eval("Description") %> 
-                    </div> 
-                    <div class="price"> 
-                        <%# Eval("Price") %> 
-                    </div> 
-                </div> 
-            </ItemTemplate> 
-        </asp:TemplateField> 
-    </Columns> 
-</asp:GridView> 
+    <div id="wp-products">
+  <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
+  <ul id="list-products">
+<asp:DataList ID="DataList1" runat="server" RepeatColumns="3" CellPadding="10" ItemStyle-CssClass="item">    
+        <ItemTemplate>    
+            <div>    
+                <asp:Image ID="product" ImageUrl='<%# Eval("ImageUrl", "~/assets/{0}") %>' CssClass ="product" runat="server" />    
+                <div class="stars">   
+                    <% int total_star = 5;   
+                       for (int i = 0; i < total_star; i++)   
+                       { %>   
+                      <span>   
+                            <img src="assets/star.png" alt="">   
+                      </span>   
+                   <% } %></div>   
+                <div class="name">    
+                    <%# Eval("Name") %>    
+                </div>    
+                <div class="desc">    
+                    <%# Eval("Description") %>    
+                </div>    
+                <div class="price">    
+                    <%# Eval("Price") %>    
+                </div>    
+            </div>    
+        </ItemTemplate>    
+    </asp:DataList>
+  </ul>
+</div>
+ </ul>
 </form>
 
-
-                <div class="item">
-                    <img src="assets/product_3.png" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Mèo tam thể</div>
-                    <div class="desc">Bộ lông với ba màu sắc khác<br>
-                    nhau. Trông chúng thật lung linh phải không</div>
-                    <div class="price">500.000 VNĐ</div>
-                </div>
-                <div class="item">
-                    <img src="assets/product_4.png" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Mèo ba tư</div>
-                    <div class="desc">Bộ lông xù trắng tinh trông chúng thật đẹp phải không?</div>
-                    <div class="price">2.000.000 VNĐ</div>
-                </div>
-
-                <div class="item">
-                    <img src="assets/product_5.png" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Mèo xiêm</div>
-                    <div class="desc">Với đôi mắt trông như những viên pha lê trong các bộ phim điện ảnh</div>
-                    <div class="price">1.000.000 VNĐ</div>
-                </div>
-
-                <div class="item">
-                    <img src="assets/product_6.png" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Mèo chân ngắn</div>
-                    <div class="desc">Sự cute của chúng có khiến bạn yêu thích?</div>
-                    <div class="price">900.000 VNĐ</div>
-                </div>
-            </ul>
             <div class="list-page">
                 <div class="item">
                     <a href="">1</a>
@@ -351,8 +251,7 @@
                 <div class="logo">
                     <img src="assets/logo.png" alt="">
                 </div>
-                <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
-            </div>
+                <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách            </div>
             <div class="box">
                 <h3>NỘI DUNG</h3>
                 <ul class="quick-menu"><li>

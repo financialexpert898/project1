@@ -26,8 +26,8 @@ namespace Web_ban_meo
             RunDataSanPham run = new RunDataSanPham();
             string strSQL = "SELECT * FROM Test";
             DataTable dt = run.GetData(strSQL); // GetData trả về một DataTable
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
             
            
         }

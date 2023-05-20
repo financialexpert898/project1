@@ -83,7 +83,7 @@
             <ItemTemplate>
                 <table class="w-100">
                     <tr>
-                        <td class="auto-style1" colspan="3" >
+                        
                             <asp:Image ID="Image1" runat="server" Height="251px" Width="401px" align="center" ImageUrl='<%# Eval("ProImageURL", "~/image/{0}") %>'/>
                         </td>
                     </tr>
