@@ -46,5 +46,29 @@ namespace WebsiteBanHang.Database
             command.ExecuteNonQuery();
             myConnection.Close();
         }
+        public DataTable Login(string username, string password)
+        {
+            // Tạo kết nối đến cơ sở dữ liệu
+           string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Web_ban_meo\Web_ban_meo\Web_ban_meo\App_Data\Web_ban_meo.mdf;Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                // Tạo câu truy vấn SQL
+                string sql = "SELECT * FROM AdminUser WHERE UserName = @username AND Password = @password";
+                // Tạo đối tượng SqlCommand
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Thêm tham số vào câu truy vấn
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    // Thực thi câu truy vấn và trả về DataTable chứa kết quả
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
     }
 }

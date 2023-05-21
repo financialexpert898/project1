@@ -169,6 +169,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="assets\img\product\samsung-s3.webp" />
+    <Content Include="HeaderControl.ascx" />
+    <Content Include="Đăng_Nhập\Login.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="image\hinh1.png" />
     <Content Include="image\hinh2.png" />
@@ -237,6 +239,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HeaderControl.ascx.cs">
+      <DependentUpon>HeaderControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeaderControl.ascx.designer.cs">
+      <DependentUpon>HeaderControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -265,6 +274,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Đăng_Nhập\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Đăng_Nhập\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
@@ -316,7 +332,6 @@
     <Content Include="vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="test" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

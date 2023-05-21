@@ -1,4 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Web_ban_meo.Index" %>
+
+<%@ Register Src="~/HeaderControl.ascx" TagPrefix="uc1" TagName="HeaderControl" %>
+
+
+
+
 <!DOCTYPE html>
 
 </script>
@@ -15,10 +21,7 @@
    
     <!-- Font awesome -->
     <style> 
-   .product { 
-       margin-right: 100px; 
-   } 
-</style> 
+    </style> 
  
 
     <!-- Custom css - Các file css do chúng ta tự viết -->
@@ -29,38 +32,8 @@
       <form runat="server">
     <!-- header -->
         <!-- header -->
-   <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
-        <div class="container">
+      <uc1:HeaderControl runat="server" id="HeaderControl" />
 
-            <div class="navbar-collapse collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Trang chủ <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/products.html">Sản phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/contact.html">Liên hệ</a>
-                    </li>
-                </ul>
-                <form class="form-inline mt-2 mt-md-0" method="get" action="pages/search.html">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search"
-                        name="keyword_tensanpham">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                </form>
-            </div>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="pages/cart.html">Giỏ hàng</a>
-                </li>
-                <li class="nav-item text-nowrap">
-                    <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
-                    <a class="nav-link" href="pages/login.html">Đăng nhập</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
         <div id="banner">
             <div class="box-left">
                 <h2>
@@ -90,8 +63,8 @@
   <ul id="list-products">
 <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" CellPadding="10" ItemStyle-CssClass="item">    
         <ItemTemplate>    
-            <div>    
-                <asp:Image ID="product" ImageUrl='<%# Eval("ImageUrl", "~/assets/{0}") %>' CssClass ="product" runat="server" />    
+            <div class="product-container">    
+                <asp:Image ID="product" ImageUrl='<%# Eval("ImageUrl", "~/assets/{0}") %>' runat="server" />    
                 <div class="stars">   
                     <% int total_star = 5;   
                        for (int i = 0; i < total_star; i++)   
@@ -107,8 +80,11 @@
                     <%# Eval("Description") %>    
                 </div>    
                 <div class="price">    
-                    <%# Eval("Price") %>    
-                </div>    
+                    <%# Eval("Price") %>    VND
+                </div>
+                <div class ="buy-now" alagin ="center">
+                    <asp:Button ID="MuaNgay" runat="server" Text="Mua" />
+                </div>
             </div>    
         </ItemTemplate>    
     </asp:DataList>
@@ -116,8 +92,7 @@
 </div>
  </ul>
 </form>
-
-            <div class="list-page">
+     <div class="list-page">
                 <div class="item">
                     <a href="">1</a>
                 </div>

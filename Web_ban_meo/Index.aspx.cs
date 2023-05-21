@@ -15,6 +15,8 @@ namespace Web_ban_meo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
             if (!IsPostBack)
             {
                 LoadProduct();
@@ -31,5 +33,8 @@ namespace Web_ban_meo
             
            
         }
+
+
+
     }
 }
