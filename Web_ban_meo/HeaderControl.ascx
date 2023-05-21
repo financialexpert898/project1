@@ -28,7 +28,7 @@
                     <a class="nav-link" href="pages/cart.html">Giỏ hàng</a>
                 <li class="nav-item text-nowrap">
                     <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
-                    <a class="nav-link" href="pages/login.html">Đăng nhập</a>
+                    <a class="nav-link" href="Đăng_Nhập/Login.aspx">Đăng Xuất</a>
                 </li>
             </ul>
         </div>

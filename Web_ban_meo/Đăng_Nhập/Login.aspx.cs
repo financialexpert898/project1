@@ -34,14 +34,14 @@ namespace Web_ban_meo.Đăng_Nhập
                 Session["username"] = username.Text.Trim();
                 Session["password"] = password.Text.Trim();
                 // Đăng nhập thành công, mở giao diện chính
-                lblMessage.Text = "Đăng nhập khẩu thành công";
+               
                 Response.Redirect("~/Index.aspx");
 
             }
             else
             {
                 // Đănng nhập thậts bại
-                lblMessage.Text = "Đăng nhập thất bại";
+               
                 Response.Redirect("~/Đăng_Nhập/Login.aspx");
 
             }

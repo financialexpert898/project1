@@ -170,6 +170,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="assets\img\product\samsung-s3.webp" />
     <Content Include="HeaderControl.ascx" />
+    <Content Include="Đăng_Ký\Register.aspx" />
     <Content Include="Đăng_Nhập\Login.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="image\hinh1.png" />
@@ -274,6 +275,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Đăng_Ký\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Đăng_Ký\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Đăng_Nhập\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

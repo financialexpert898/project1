@@ -25,7 +25,6 @@
         <!-- header -->
         
     <main role="main">
-        <asp:Label ID="lblMessage" runat="server" Text="thông báo"></asp:Label>
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
         <form name="frmdangnhap" id="frmdangnhap" method="post" action="#">
             <div class="container mt-4">
@@ -42,7 +41,7 @@
                                                 <i class="icon-user"></i>
                                             </span>
                                         </div>
-                                      <asp:TextBox ID="username" runat="server" cssclass="form-control"></asp:TextBox >
+                                      <asp:TextBox ID="username" runat="server" cssclass="form-control" placeholder ="username"></asp:TextBox >
                                     </div>
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
@@ -50,7 +49,7 @@
                                                 <i class="icon-lock"></i>
                                             </span>
                                         </div>
-                                        <asp:TextBox ID="password" runat="server"  cssclass ="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="password" runat="server"  cssclass ="form-control" type ="password" placeholder =" password"></asp:TextBox>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
@@ -69,7 +68,7 @@
                                         <p>Đăng ký để làm thành viên của Trang web bán hàng. Bạn sẽ được một số quyền
                                             lợi nhất
                                             định khi làm thành viên của Chúng tôi.</p>
-                                        <a class="btn btn-primary active mt-3" href="register.html">Đăng ký ngay!</a>
+                                        <a class="btn btn-primary active mt-3" href="../Đăng_Ký/register.aspx">Đăng ký ngay!</a>
                                     </div>
                                 </div>
                             </div>
@@ -80,28 +79,7 @@
         </form>
         <!-- End block content -->
     </main>
-
-    <!-- footer -->
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <span>Bản quyền © bởi <a href="https://nentang.vn">Nền Tảng</a> - <script>document.write(new Date().getFullYear());</script>.</span>
-            <span class="text-muted">Hành trang tới Tương lai</span>
-
-            <p class="float-right">
-                <a href="#">Về đầu trang</a>
-            </p>
-        </div>
-    </footer>
     <!-- end footer -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/popperjs/popper.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Custom script - Các file js do mình tự viết -->
-    <script src="../assets/js/app.js"></script>
     </form>
 </body>
 </html>
