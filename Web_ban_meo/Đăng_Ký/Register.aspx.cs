@@ -47,7 +47,7 @@ namespace Web_ban_meo.Đăng_Ký
                     {
 
                         string message = "Tạo Tài Khoản Thành Công Chúc Bạn Chọn Được Một Chú Mèo Như Ý";
-                        string redirectUrl = "~/Đăng_Nhập/Login.aspx"; // Thay đổi đường dẫn tới trang cần chuyển hướng
+                        string redirectUrl = "../Đăng_Nhập/Login.aspx"; // Thay đổi đường dẫn tới trang cần chuyển hướng
                         string script = "alert('" + message + "'); window.location.href = '" + redirectUrl + "';";
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Thông báo", script, true);
 

@@ -25,9 +25,18 @@ namespace Web_ban_meo.SP
             dlProduct.DataBind();
         }
 
-        protected void btnXemchitiet_Click(object sender, EventArgs e)
+        protected void dlProduct_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "nutxemchitiet")
+            {
+                Response.Redirect("/SPChiTiet/Product_detail.aspx?ProID=" + e.CommandArgument.ToString());
+            }
+        }
+
+        protected void dlProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
     }
 }
