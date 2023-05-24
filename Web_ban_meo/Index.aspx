@@ -145,7 +145,7 @@
                                 <img src="assets/star.png" alt="">
                             </span>
                         </div>
-                        <div class="name">Trương Khánh Minh</div>
+                        <div class="name">Bùi Thế Cường</div>
 
                         <div class="text">
                             <p>Người bán có tâm, có tầm, mèo nhận về giống hình mẫu, khỏe mạnh và phát triển tốt</p>
