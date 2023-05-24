@@ -1,91 +1,127 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Product_detail.aspx.cs" Inherits="Web_ban_meo.SPChiTiet.Product_detail" %>
 
+<%@ Register Src="~/HeaderControl.ascx" TagPrefix="uc1" TagName="HeaderControl" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<head runat ="server">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nền tảng - Kiến thức cơ bản về WEB | Bảng tin</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" type="text/css">
     <!-- Font awesome -->
-    <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css" type="text/css"/>
-    <link rel="stylesheet" href ="C:\Users\Admin\source\repos\WebsiteBanHang\WebsiteBanHang\css\app.css" />
-    </head>
+    <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Custom css - Các file css do chúng ta tự viết -->
+    <link rel="stylesheet" href="../assets/css/product-detail.css" type="text/css"/>
+</head>
 <body>
+
     <form id="form1" runat="server">
     <!-- header -->
-    <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
-        <div class="container">
-            <div class="navbar-collapse collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../index1.html">Trang chủ <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Sản phẩm</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Liên hệ</a>
-                    </li>
-                </ul>
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search"
-                        name="keyword_tensanpham"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-            </div>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="cart.html">Giỏ hàng</a>
-                </li>
-                <li class="nav-item text-nowrap">
-                    <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
-                    <a class="nav-link" href="login.html">Đăng nhập</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <uc1:HeaderControl runat="server" ID="HeaderControl" />
     <!-- end header -->
-    <main role="main">
+
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
         <!-- Danh sách sản phẩm -->
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Danh sách Sản phẩm</h1>
-                <p class="lead text-muted">Các sản phẩm với chất lượng, uy tín, cam kết từ nhà Sản xuất, phân phối và
-                    bảo hành chính hãng.</p>
+       
+       <main role="main">
+          <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+        <div class="container mt-4">
+            <div id="thongbao" class="alert alert-danger d-none face" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-        </section>
-  
-        <a id="heading" class="heading" data-t="{&quot;n&quot;:&quot;destination&quot;,&quot;t&quot;:13,&quot;b&quot;:1,&quot;c.i&quot;:&quot;AA1bkGqV&quot;,&quot;c.t&quot;:13,&quot;c.v&quot;:&quot;news&quot;,&quot;c.c&quot;:&quot;national&quot;,&quot;c.b&quot;:&quot;VTC&quot;,&quot;ext&quot;:{&quot;width&quot;:300,&quot;height&quot;:304,&quot;slot&quot;:7,&quot;template&quot;:&quot;4c2r-8cards-t1&quot;,&quot;row&quot;:3,&quot;col&quot;:1,&quot;traceIdIndex&quot;:0,&quot;recoId&quot;:&quot;jE7Ts1sNdxQZkqF5LfcMKhyDga&quot;},&quot;c.hl&quot;:&quot;Thay thế kịp thời cán bộ yếu kém, gây nhũng nhiễu trong quản lý đầu tư công&quot;}" href="https://www.msn.com/vi-vn/news/national/thay-thế-kịp-thời-cán-bộ-yếu-kém-gây-nhũng-nhiễu-trong-quản-lý-đầu-tư-công/ar-AA1bkGqV" part="heading" target="_blank"><span aria-level="2" role="heading">
-                            <slot></slot>
-                        </span></a>
-  
-        </main>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [ProDuct] WHERE ([ProID] = @ProID)">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="ProID" QueryStringField="ProID" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+  <asp:DataList ID="DataList1"  DataKeyField="ProID" runat="server" RepeatColumns="1" DataSourceID="SqlDataSource1" OnItemCommand= "DataList1_ItemCommand">
+    <ItemTemplate>
+             <div class="card">
+                <div class="container-fliud">
+                    <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post"
+                        action="/php/twig/frontend/giohang/themvaogiohang">
+                        <div class="wrapper row">
+                            <div class="preview col-md-6">
+                                <div class="preview-pic tab-content">
+                
+         <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ProImageURL", "~/image/{0}") %>' />
+         
+         </div>
+            <ul class="preview-thumbnail nav nav-tabs"></ul>
+          </div>
 
-        <table style="width:100%;">
-            <tr>
-                <td rowspan="3">
-                    <asp:Image ID="Image1" runat="server" Height="327px" Width="390px" />
-                </td>
-                <td>
-                    <asp:Label ID="lblProName" runat="server" Text="Label"></asp:Label>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblProColor" runat="server" Text="Label"></asp:Label>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblProOrigin" runat="server" Text="Label"></asp:Label>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+        <div class="details col-md-6">
+                                <h3 class="product-title">
+            <asp:Label ID="ProductName" runat="server" Text='<%# Eval("ProName") %>' />
+        </h3>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <span class="review-no">999 reviews</span>
+                                </div>
+            <p>
+                <b>Giống Loài:</b> <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProSort") %>'></asp:Label></p>
+                 <p>
+                     <b>Màu Sắc</b>:
+                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("ProColor") %>'></asp:Label>
+                 </p>   
+             <p class="product-description">
+            <ol><b>Mô tả chi tiết:</b>
+                <li>
+                    Tên khoa học:
+                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("ProScienceName") %>'></asp:Label>
+
+                </li>
+                <li>Tuổi thọ:
+                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("ProLongevity") %>'></asp:Label>
+                </li>
+                <li>Nguồn gốc:
+                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("ProOrigin") %>'></asp:Label>
+                </li>
+                <li>Cân nặng:
+                    <asp:Label ID="Label9" runat="server" Text='<%# Eval("ProWeight") %>'></asp:Label>
+                </li>
+            </ol>
+                 <p>
+                 </p>
+                 <h4 class="price">Giá hiện tại: <span>
+                     <asp:Label ID="Label4" runat="server" Text='<%# Eval("ProPrice") %>'></asp:Label>
+                     VND</span></h4>
+                 <h7>
+                     Ngày Đăng:
+                     <asp:Label ID="Label5" runat="server" Text='<%# Eval("UpdateDate") %>' />
+                 </h7>
+                 <div>
+                     <asp:Button ID="btnaddtoCart" runat="server" Text="Thêm Vào Giỏ Hàng" class="add-to-cart btn btn-default" CommandName="AddToCart" />
+                 </div>
+                                <p>
+                 </p>
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>         
+    
+    </ItemTemplate>
+</asp:DataList>
+    </div>
+</main>
 
     </form>
+
 </body>
 </html>

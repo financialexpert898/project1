@@ -24,6 +24,15 @@ namespace Web_ban_meo.SP
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// HeaderControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Web_ban_meo.HeaderControl HeaderControl;
+
+        /// <summary>
         /// dlProduct control.
         /// </summary>
         /// <remarks>

@@ -4,35 +4,25 @@
 
 
 
-
 <!DOCTYPE html>
 
-</script>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="assets/style.css" type="text/css">
-   
     <!-- Font awesome -->
-    <style> 
-    </style> 
- 
-
+   
     <!-- Custom css - Các file css do chúng ta tự viết -->
-
 </head>
-
 <body>
       <form runat="server">
     <!-- header -->
         <!-- header -->
-      <uc1:HeaderControl runat="server" id="HeaderControl" />
+          <uc1:HeaderControl runat="server" id="HeaderControl" />
 
         <div id="banner">
             <div class="box-left">
@@ -61,16 +51,19 @@
     <div id="wp-products">
   <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
   <ul id="list-products">
-<asp:DataList ID="DataList1" runat="server" RepeatColumns="3" CellPadding="10" ItemStyle-CssClass="item">    
-        <ItemTemplate>    
-            <div class="product-container">    
-                <asp:Image ID="product" ImageUrl='<%# Eval("ImageUrl", "~/assets/{0}") %>' runat="server" />    
+<asp:DataList ID="DataList1" runat="server" RepeatColumns="3" CellPadding="10"  ItemStyle-CssClass="item ">    
+            <ItemTemplate> 
+                
+                <div class="product-container">
+                 <div class ="product-separator">
+                <asp:Image ID="product" ImageUrl='<%# Eval("ImageUrl", "~/assets/{0}") %>' runat="server" /> 
+                 
                 <div class="stars">   
                     <% int total_star = 5;   
                        for (int i = 0; i < total_star; i++)   
                        { %>   
                       <span>   
-                            <img src="assets/star.png" alt="">   
+                      <img src="assets/star.png" alt="">   
                       </span>   
                    <% } %></div>   
                 <div class="name">    
@@ -85,7 +78,9 @@
                 <div class ="buy-now" alagin ="center">
                     <asp:Button ID="MuaNgay" runat="server" Text="Mua" />
                 </div>
-            </div>    
+            </div>
+            </div>
+                   
         </ItemTemplate>    
     </asp:DataList>
   </ul>

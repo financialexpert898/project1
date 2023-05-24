@@ -24,39 +24,30 @@ namespace Web_ban_meo.SPChiTiet
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Image1 control.
+        /// HeaderControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::Web_ban_meo.HeaderControl HeaderControl;
 
         /// <summary>
-        /// lblProName control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProName;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// lblProColor control.
+        /// DataList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProColor;
-
-        /// <summary>
-        /// lblProOrigin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProOrigin;
+        protected global::System.Web.UI.WebControls.DataList DataList1;
     }
 }

@@ -163,6 +163,7 @@
     <Content Include="css\app.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Giỏ Hàng\Cart.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -170,6 +171,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="assets\img\product\samsung-s3.webp" />
     <Content Include="HeaderControl.ascx" />
+    <Content Include="Liên_Lạc\Contact.aspx" />
     <Content Include="Đăng_Ký\Register.aspx" />
     <Content Include="Đăng_Nhập\Login.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -237,6 +239,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Database\RunDataSanPham.cs" />
+    <Compile Include="Giỏ Hàng\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Giỏ Hàng\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -253,6 +262,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Liên_Lạc\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Liên_Lạc\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SPChiTiet\Product_detail.aspx.cs">
